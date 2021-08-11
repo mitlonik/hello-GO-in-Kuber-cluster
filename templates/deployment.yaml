@@ -1,0 +1,22 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jesse
+  labels:
+    app: jesse
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jesse
+  template:
+    metadata:
+      labels:
+        app: jesse
+    spec:
+      containers:
+      - name: jesse
+        image: {{ .Values.jesse.image}}
+        ports:
+        - containerPort: 8888

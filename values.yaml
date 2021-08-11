@@ -1,0 +1,30 @@
+###DEPENDENCIES###
+
+postgresql:
+  enabled: true
+  global:
+    storageClass: 
+    postgresql:
+      postgresqlDatabase: "postgres"
+      postgresqlUsername: "postgres"
+      postgresqlPassword: ""
+
+
+###GLOBAL###
+
+namespace: jesse
+
+
+###VARIABLES###
+
+jesse:
+  image: salehmir/jesse:latest
+
+jesseback:
+  image: "jessetradesinfo/jesse-trades-info:v0.2.1"
+  postgres:
+    DB_HOST: "jesse-postgresql"
+    DB_NAME: jesse_db
+    DB_USER: postgres
+    DB_PASSWORD: ""
+    DB_PORT: "5432"
