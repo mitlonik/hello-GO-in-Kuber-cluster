@@ -1,6 +1,5 @@
 # syntax=docker/dockerfile:1
 
-
 ##
 ## Build
 ##
@@ -18,23 +17,11 @@ RUN go build -o /hello-go
 
 
 
-
 ##
 ## Deploy
 ##
-FROM gcr.io/distroless/base-debian10
+FROM alpine:3.14
 WORKDIR /
 COPY --from=builder /hello-go /hello-go
 EXPOSE 8080
-USER nonroot:nonroot
-CMD ["/hello-go"]
-
-
-##
-## Deploy
-##
-# FROM alpine:3.14
-# WORKDIR /
-# COPY --from=builder /hello-go /hello-go
-# EXPOSE 3000
-# ENTRYPOINT ["/hello-go"]
+ENTRYPOINT ["/hello-go"]
