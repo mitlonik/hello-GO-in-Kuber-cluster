@@ -12,6 +12,7 @@ COPY go.mod ./
 RUN go mod download
 
 COPY main.go ./
+COPY index.html ./
 # Build the program from source into hello-go file
 RUN go build -o /hello-go
 

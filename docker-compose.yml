@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   app:
-    image: go-hello
+    image: mitlonik/go-hello
     container_name: go-hello
     build:
       dockerfile: Dockerfile
