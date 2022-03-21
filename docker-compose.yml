@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  app:
+    image: go-hello
+    container_name: go-hello
+    build:
+      dockerfile: Dockerfile
+      context: ./app/
+    # restart: on-failure
+    ports:
+      - "8080:8080"
+    # command:
+    # environment:
+    #   - variable
+    # volumes:
+    # networks:
