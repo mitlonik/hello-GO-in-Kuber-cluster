@@ -24,4 +24,7 @@ FROM alpine:3.14
 WORKDIR /
 COPY --from=builder /hello-go /hello-go
 EXPOSE 8080
+
+HEALTHCHECK --interval=5s --timeout=10s --retries=3 CMD curl -sS 127.0.0.1:8080 || exit 1
+
 ENTRYPOINT ["/hello-go"]
