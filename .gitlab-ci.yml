@@ -40,6 +40,6 @@ deploy:
     - docker-compose pull
     - docker-compose up --detach --force-recreate
     - echo Welcome to the browser!
-    - curl localhost:8080
+    - curl -I 0.0.0.0:8080
   # when:
   #   manual
