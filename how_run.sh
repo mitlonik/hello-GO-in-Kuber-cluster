@@ -15,7 +15,7 @@ docker push mitlonik/go-hello
 
 ## INstall monitoring tools:
 
-a) grafana - https://grafana.com/docs/loki/latest/installation/helm/
+* grafana - https://grafana.com/docs/loki/latest/installation/helm/
 
 ``` bash
 helm repo add grafana https://grafana.github.io/helm-charts
