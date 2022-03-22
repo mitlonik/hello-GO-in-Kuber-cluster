@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: go-hello
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-hello
+  template:
+    metadata:
+      labels:
+        app: go-hello
+    spec:
+      containers:
+        - name: go-hello
+          # name: mitlonik/go-hello:latest
+          image: go-hello
+          # readinessProbe:
+          livenessProbe:
+            exec:
+              command:
+                - curl -sS http://127.0.0.1:8080 || echo 1
+            failureThreshold: 3
+            periodSeconds: 5
+            timeoutSeconds: 10
+            successThreshold: 1
+            initialDelaySeconds: 10
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always

@@ -2,11 +2,11 @@ version: '3.7'
 
 services:
   app:
-    image: go-hello
+    image: mitlonik/go-hello
     container_name: go-hello
     build:
       dockerfile: Dockerfile
-      context: ./app/
+      context: ./
     ports:
       - "8080:8080"
     healthcheck:

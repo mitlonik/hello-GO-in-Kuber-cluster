@@ -4,16 +4,11 @@
 ## Build
 ##
 FROM golang:1.18-buster as builder
-WORKDIR /app
-
-# Download necessary Go modules
-COPY go.mod ./
-# COPY go.sum ./
+WORKDIR /goapp
+COPY app/* ./
 RUN go mod download
-
-COPY main.go ./
-# Build the program from source into hello-go file
-RUN go build -o /hello-go
+## Build the program from source into hello-go file
+RUN  CGO_ENABLED=0  go build -o /hello-go
 
 
 
